@@ -1,4 +1,4 @@
-namespace HotelListing.Vistra.API
+namespace HotelListing.Vistra.API.Model
 {
     public class WeatherForecast
     {

@@ -1,3 +1,4 @@
+using HotelListing.Vistra.API.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotelListing.Vistra.API.Controllers
@@ -21,6 +22,7 @@ namespace HotelListing.Vistra.API.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            _logger.LogInformation("Weather request");
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
