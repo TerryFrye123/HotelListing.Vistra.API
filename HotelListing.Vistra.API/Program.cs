@@ -1,4 +1,6 @@
+using HotelListing.API.Vistra.Services;
 using HotelListing.Vistra.Data.Context;
+using HotelListing.Vistra.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -27,6 +29,9 @@ namespace HotelListing.Vistra.API
                                                         .AllowAnyMethod()));
 
             builder.Host.UseSerilog((ctx, lc) => lc.WriteTo.Console().ReadFrom.Configuration(ctx.Configuration));
+
+            builder.Services.AddScoped<ICountryService, CountryService>();
+            builder.Services.AddScoped<ICountryRepository, CountryRepository>();
 
             var app = builder.Build();
 
