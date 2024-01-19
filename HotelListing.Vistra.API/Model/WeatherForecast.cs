@@ -1,3 +1,5 @@
+using System;
+
 namespace HotelListing.Vistra.API.Model
 {
     public class WeatherForecast

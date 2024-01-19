@@ -1,3 +1,5 @@
+using HotelListing.Vistra.Data.Context;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 namespace HotelListing.Vistra.API
@@ -6,7 +8,12 @@ namespace HotelListing.Vistra.API
     {
         public static void Main(string[] args)
         {
+
             var builder = WebApplication.CreateBuilder(args);
+
+            var connectionString = builder.Configuration.GetConnectionString("HotelListingDbConnectionString");
+            builder.Services.AddDbContext<HotelListingDbContext>(options => options.UseSqlServer(connectionString));
+
 
             // Add services to the container.
 
